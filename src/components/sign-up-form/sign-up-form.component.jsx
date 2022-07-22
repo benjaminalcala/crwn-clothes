@@ -3,6 +3,7 @@ import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
 import { createUserDocFromUserAuth, createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
 
+
 import './sign-up-form.styles.scss';
 
 
@@ -20,6 +21,8 @@ const SignUpForm = () => {
   const {displayName, email, password, confirmPassword} = formFields;
 
 
+
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   }
@@ -34,6 +37,8 @@ const SignUpForm = () => {
     try{
       const { user } = await createAuthUserWithEmailAndPassword(email, password);
       await createUserDocFromUserAuth(user, {displayName});
+
+      
       resetFormFields();
 
 
